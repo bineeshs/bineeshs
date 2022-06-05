@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+<h2>Task to be Completed</h2>
+
+            <div class="card">
+                <div class="shadow-lg p-3 rounded" style="background-color:antiquewhite;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{task.name}}</h5>
+                        <p class="card-text"><b>{{task.priority}}</b></p>
+                        <p class="card-text"><b>{{task.date}}</b></p>
+                        <a href="{% url 'DELETE' task.id %}" class="btn btn-danger">Done</a>
+                        <a href="{% url 'CBVUPDATE' task.id %}" class="btn btn-success">Update</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+
+{% endblock %}

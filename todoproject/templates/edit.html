@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="del">
+<form method="POST">
+    {% csrf_token %}
+    {{f.as_p}}
+    <button type="submit" style="background-color:red;">Save</button>
+
+</form>
+</div>
+{% endblock %}
