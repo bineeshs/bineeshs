@@ -1,0 +1,23 @@
+body
+    {
+    background-color: aqua;
+    font-size:30px;
+    font-style: italic;
+    }
+
+.dd
+    {
+    background-color: red;
+    font-style: italic;
+    font-size: 30px;
+    font-family: Arial Narrow Bold;
+    padding: 40px;
+
+    }
+.navbar-brand
+          {   font-size: 45px;
+              margin-bottom: 30px;
+          }
+.card{
+margin-bottom:20px;
+margin-top:20px;}
