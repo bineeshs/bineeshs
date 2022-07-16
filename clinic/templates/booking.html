@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Consultation</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="main.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <style>
+
+body{
+    font-family: 'Roboto', sans-serif;
+  }
+  /*--------------------------------------------------------------
+  # Navigation Menu
+  --------------------------------------------------------------*/
+  .nav-back{
+      background: rgba(17, 219, 207,0.8);
+      color: #fff;
+  }
+  .navbar-brand{
+    color: #000;
+  }
+  .navbar-brand:hover{
+    color: #fff;
+  }
+  .nav-link{
+    color: #000;
+  }
+  .nav-link:hover{
+    color:#fff;
+  }
+  .navbar-toggler{
+    outline: none!important;
+  }
+
+
+
+  /*--------------------------------------------------------------
+  # Hero Section
+  --------------------------------------------------------------*/
+  #hero {
+      width: 100%;
+      height: 50vh;
+      background: url("./images/hero.jpg") center center;
+      background-size: cover;
+      position: relative;
+    }
+
+    #hero .container {
+      padding-top: 80px;
+    }
+
+    #hero:before {
+      content: "";
+      background: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    #hero h1 {
+      margin: 0 0 10px 0;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 56px;
+      color: #fff;
+    }
+
+    #hero h2 {
+      color: #eee;
+      margin-bottom: 40px;
+      font-size: 15px;
+      font-weight: 500;
+      font-family: "Open Sans", sans-serif;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .main-btn {
+      font-family: "Poppins", sans-serif;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 1px;
+      display: inline-block;
+      padding: 8px 28px;
+      border-radius: 50px;
+      transition: 0.5s;
+      margin: 10px;
+      border: 2px solid #fff;
+      color: #fff;
+    }
+
+     .main-btn:hover {
+      background: #11dbcf;
+      border: 2px solid #11dbcf;
+      text-decoration: none;
+      color:#fff;
+    }
+   .form-group .btn-form{
+    background: #11dbcf;
+    border: 2px solid #11dbcf;
+    text-decoration: none;
+    color:#000;
+   }
+
+    .footer {
+        text-align: center;
+        font-size: 0.9rem;
+        background:rgba(17, 219, 207,0.8);
+      }
+      .footer .btn-back{
+        background: #fff;
+        color: #00d9ff;
+      }
+      .footer .text{
+        color: #000;
+      }
+
+
+  </style>
+  <body>
+  <script>
+      var BrnAndPlc = {};
+      BrnAndPlc['Thiruvanathapuram'] = ["----",'Attingal', 'Nedumangad', 'Kazhakkoottam','Thambanoor','Neyyattinkara','Parasala','Kattakad'];
+      BrnAndPlc['Kollam'] = ["----",'Chadayamangalam', 'Pathanapuram', 'Kunnathur', 'Punalur', 'Kottarakkara', 'Karunagappally', 'Kollam'];
+      BrnAndPlc['Pathanamthitta'] = ["----",'Pathanamthitta', 'Adoor', 'Kozhenchery','Thiruvalla','Konni','Thannithod','Ranni'];
+      BrnAndPlc['Alappuzha'] = ["----",'Alappuzha', 'Ambalappuzha', 'Chengannur', 'Cherthala', 'Mavelikkara', 'Kayamkulam', 'Haripad'];
+      BrnAndPlc['Kottayam'] = ["----",'Kottayam', 'Kottayam', 'Ettumanoor', 'Kanjirappally', 'Pala', 'Vaikom', 'Changanassery'];
+      BrnAndPlc['Edukki'] = ["----",'Devikulam', 'Edukki', 'Udumbanchola', 'Thodupuzha', 'Vagamon', 'Peerumade', 'Kuttikkanam'];
+      BrnAndPlc['Ernakulam'] = ["----",'Ernakulam,', 'Aluva', 'Muvattupuzha', 'Muvattupuzha', 'Perumbavoor', 'Mattancherry,', 'Angamaly'];
+
+      function ChangeBrnList() {
+        var brnList = document.getElementById("brn");
+        var plcList = document.getElementById("plc");
+        var selbrn = brnList.options[brnList.selectedIndex].value;
+        while (plcList.options.length) {
+            plcList.remove(0);
+        }
+        var brnh = BrnAndPlc[selbrn];
+        if (brnh) {
+          var i;
+          for (i = 0; i < brnh.length; i++) {
+            var brn = new Option(brnh[i], i);
+            plcList.options.add(brn);
+          }
+        }
+      }
+  </script>
+  <script>
+  var DepAndDoc = {};
+  DepAndDoc['General Medicine'] = ["----",'Dr.GN1', 'Dr.GN2', 'Dr.GN3', 'Dr.GN4', 'Dr.GN5', 'Dr.GN6', 'Dr.GN7'];
+  DepAndDoc['General Surgery'] = ["----",'DR.GS1', 'DR.GS2', 'DR.GS3', 'DR.GS4', 'DR.GS5', 'DR.GS6', 'DR.GS7'];
+  DepAndDoc['Paediatrics'] = ["----",'Dr.Paediatrics1', 'Dr.Paediatrics2', 'Dr.Paediatrics3', 'Dr.Paediatrics4', 'Dr.Paediatrics5', 'Dr.Paediatrics6', 'Dr.Paediatrics7'];
+  DepAndDoc['Orthopaedics'] = ["----",'Dr.Ortho1', 'Dr.Ortho2', 'Dr.Ortho3', 'Dr.Ortho4', 'Dr.Ortho5', 'Dr.Ortho6', 'Dr.Ortho7'];
+  DepAndDoc['Radiology'] = ["----",'DR.Radio1', 'DR.Radio2', 'DR.Radio3', 'DR.Radio4', 'DR.Radio5', 'DR.Radio6', 'DR.Radio7'];
+  DepAndDoc['Oncology'] = ["----",'Dr.Onco1', 'Dr.Onco2', 'Dr.Onco3','Dr.Onco4','Dr.Onco5','Dr.Onco6','Dr.Onco7'];
+  DepAndDoc['Dermatology'] = ["----",'Dr.Dermo1', 'Dr.Dermo2', 'Dr.Dermo3', 'Dr.Dermo4', 'Dr.Dermo5', 'Dr.Dermo6', 'Dr.Dermo7'];
+
+  function ChangeDepList() {
+    var depList = document.getElementById("dep");
+    var docList = document.getElementById("doc");
+    var selDep = depList.options[depList.selectedIndex].value;
+    while (docList.options.length) {
+        docList.remove(0);
+    }
+    var dept = DepAndDoc[selDep];
+    if (dept) {
+      var i;
+      for (i = 0; i < dept.length; i++) {
+        var dep = new Option(dept[i], i);
+        docList.options.add(dep);
+      }
+    }
+  }
+  </script>
+
+    <nav class="navbar navbar-expand-lg nav-back fixed-top"
+    id="mainNav">
+      <div class="container">
+          <a class="navbar-brand" href="#">MedicalCare</a>
+          <button class="navbar-toggler navbar-toggler-right" type="button"
+           data-toggle="collapse" data-target="#navbarResponsive"
+           aria-controls="navbarResponsive" aria-expanded="false"
+           aria-label="Toggle navigation"><i class="fas fa-syringe fa-2x"></i>
+           </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link"
+                  href="{% url 'index' %}">Services</a></li>
+<!--                  <li class="nav-item"><a class="nav-link"-->
+<!--                    href="#about">About</a></li>-->
+<!--                  <li class="nav-item"><a class="nav-link"-->
+<!--                    href="#about">Medical Camps</a></li>-->
+<!--                  <li class="nav-item"><a class="nav-link"-->
+<!--                     href="#projects">Team</a></li>-->
+                  <li class="nav-item"><a class="nav-link"
+                    href="#signup">Contact</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+<!-- End Header -->
+   <!-- ======= Hero Section ======= -->
+   <section id="hero" class="d-flex align-items-center">
+    <div class="container text-center position-relative">
+      <h1>24/7 Care is available</h1>
+      <h2>Book your time slot to see your doctor</h2>
+        {% for msg in messages %}
+            <a href="#" style="color:Green;" class="main-btn">{{msg}}</a><br>
+              {% endfor %}
+      <a href="booking" class="main-btn">Get Started</a>
+    </div>
+  </section>
+  <!-- End Hero -->
+
+  <div class="container mt-4 p-4">
+      <div class="row">
+          <div class="col-md-6">
+              <h2 class="text-center my-4">
+                  Find Consultations
+              </h2>
+              <form action="booking" method="POST">
+                  {% csrf_token %}
+                  <div class="form-group row">
+                      <label class="col-sm-4 col-lg-4">
+                          Patient Name
+                      </label>
+                      <div class="col-sm-8 col-lg-8">
+                          <input type="text"id="patient-name" name= 'name' class="form-control"
+                          placeholder="Name"required>
+                      </div>
+                  </div>
+                  <!---->
+                  <div class="form-group row">
+                    <label class="col-sm-4 col-lg-4">
+                        Gender
+                    </label>
+                    <div class="col-sm-8 col-lg-8">
+                        <input type="radio" id="patient-name" name="gender" value="Male" required>
+                        <label for="html" >Male</label><br>
+                        <input type="radio" id="patient-name" name="gender" value="Female" required>
+                    <label for="css">Female</label><br>
+                    </div>
+                </div>
+                <!---->
+                  <!---->
+                  <div class="form-group row">
+                    <label class="col-sm-4 col-lg-4">
+                        Contact
+                    </label>
+                    <div class="col-sm-8 col-lg-8">
+                        <input type="tel"id="contact" name="contact" class="form-control"
+                        placeholder="123"required>
+                    </div>
+                </div>
+                <!---->
+                <div class="form-group row">
+                    <label class="col-sm-4 col-lg-4">
+                      Date Of Birth
+                    </label>
+                    <div class="col-sm-8 col-lg-8">
+                        <input type="date"id="date"class="form-control" required>
+                    </div>
+                </div>
+                  <!---->
+                  <!---->
+                <div class="form-group row">
+                    <label class="col-sm-4 col-lg-4">
+                      Email
+                    </label>
+                    <div class="col-sm-8 col-lg-8">
+                        <input type="email"id="date"class="form-control" name="email" required>
+                    </div>
+                </div>
+                <!---->
+                <div class="form-group row">
+                    <label class="col-sm-4 col-lg-4">
+                      Appointment Date
+                    </label>
+                    <div class="col-sm-8 col-lg-8">
+                        <input type="date" id="date" class="form-control" name="date" required >
+                    </div>
+                </div>
+                <!---->
+
+                <!---->
+                <div class="form-group row">
+                    <label class="col-sm-4 col-lg-4">
+                       Time
+                    </label>
+                    <div class="col-sm-8 col-lg-8">
+                        <input type="time"id="time"class="form-control" name="time" required>
+                       </div>
+                </div>
+                <!---->
+                <div class="form-group row">
+                    <label class="col-sm-4 col-lg-4">
+                       Address
+                    </label>
+                    <div class="col-sm-8 col-lg-8">
+                        <textarea id="symptoms" class="form-control" required></textarea>
+                    </div>
+                </div>
+                <!---->
+                <!---->
+                <div class="form-group row">
+                    <label class="col-sm-4 col-lg-4">
+                      Blood Group
+                    </label>
+                    <div class="col-sm-8 col-lg-8">
+                        <select class="form-control" id="inputState" required>
+                            <option value="SelectState" >Blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                </div>
+                <!---->
+                <!---->
+                <div class="form-group row">
+                    <label class="col-sm-4 col-lg-4">
+                       District
+                    </label>
+                    <div class="col-sm-8 col-lg-8">
+                        <select class="form-control" id="brn" onchange="ChangeBrnList()" required>
+                            <option value="SelectState">District</option>
+                                <option value="Thiruvanathapuram">Thiruvanathapuram</option>
+                                <option value="Kollam">Kollam</option>
+                                <option value="Pathanamthitta">Pathanamthitta</option>
+                                <option value="Alappuzha">Alppuzha</option>
+                                <option value="Kottayam">Kottayam</option>
+                                <option value="Edukki">Edukki</option>
+                                <option value="Ernakulam">Ernakulam</option></select>
+                          </select>
+                    </div>
+                </div>
+                  <div class="form-group row">
+                      <label class="col-sm-4 col-lg-4">
+                          Branch
+                      </label>
+                      <div class="col-sm-8 col-lg-8">
+                          <select class="form-control" text="Branches" id="plc" required>Branches</select>
+                      </div>
+                  </div>
+                <!---->
+                <div class="form-group row">
+                    <label class="col-sm-4 col-lg-4">
+                       Departmant
+                    </label>
+                    <div class="col-sm-8 col-lg-8">
+                        <select class="form-control" id="dep" onchange="ChangeDepList()" required>
+                                <option value="Departmant">Departmant</option>
+                                <option value="General Medicine">General Medicine</option>
+                                <option value="General Surgery">General Surgery</option>
+                                <option value="Paediatrics">Paediatrics</option>
+                                <option value="Orthopaedics">Orthopaedics</option>
+                                <option value="Radiology">Radiology</option>
+                                <option value="Oncology">Oncology</option>
+                                <option value="Dermatology">Dermatology</option></select>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-lg-4">
+                       Doctor's name
+                    </label>
+                    <div class="col-sm-8 col-lg-8">
+                        <select class="form-control" text="-----" id="doc">-------</select>
+                    </div>
+                </div>
+                <!---->
+                <!---->
+                <div class="form-group row justify-content-end">
+                    <div class="col-sm-5">
+                        <button type="submit"class="btn btn-form">
+                            Submit
+                        </button>
+                        <a href="{% url 'index' %}" type="submit" class="btn btn-form">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+
+              </form>
+              {% for msg in messages %}
+
+              <h4 style="color:green;">{{msg}}</h4>
+              {% endfor %}
+          </div>
+          <div class="col-md-6">
+              <h2 id="services" class="text-center my-4"></h2>
+              <ul id="consultations"class="list-group"></ul>
+          </div>
+      </div>
+  </div>
+
+  <!-- Footer-->
+  <footer class="footer py-4 mt-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-lg-left">Copyright © Your Website 2020</div>
+            <div class="col-lg-4 my-3 my-lg-0">
+                <a class="btn btn-back btn-social mx-2" href="#!">
+                  <i class="fab fa-twitter"></i></a>
+                  <a class="btn btn-back btn-social mx-2" href="#!">
+                    <i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-back btn-social mx-2" href="#!">
+                      <i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="col-lg-4 text-lg-right">
+              <a class="mr-3 text" href="#!">Privacy Policy</a>
+              <a href="#!"class="text">Terms of Use</a></div>
+        </div>
+    </div>
+</footer>
+      <script src="main.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

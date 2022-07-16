@@ -1,0 +1,59 @@
+
+
+{% load static %}
+
+<div id="wrapper">
+	<!-- start header -->
+	<header>
+	<section class="contactInfo">
+	<div class="container-fluid">
+                    <div class="col-md-12">
+                            <div class="contact-area">
+                                <ul>
+                                    <li><i class="fa fa-phone-square"></i>99460-37905</li>
+                                    <li><i class="fa fa-envelope-o"></i>info@mdeicalcare.com</li>
+                                </ul>
+                            </div>
+                    </div>
+            </div>
+		</section>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+
+<a class="navbar-brand" href="{% url 'index' %}"><img src="{%static 'img/logo.png' %}" alt="logo"/></a>
+    </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav">
+
+
+                        <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active" >
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Branches <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="https://en.wikipedia.org/wiki/Thiruvananthapuram">Thiruvanandapuram</a></li>
+                            <li><a href="https://en.wikipedia.org/wiki/kollam">Kollam</a></li>
+                            <li><a href="https://en.wikipedia.org/wiki/Pathanamthitta">Pathanamthitta</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="https://en.wikipedia.org/wiki/Alappuzha">Alappuzha</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="https://en.wikipedia.org/wiki/Kottayam">Kottayam</a></li>
+                            <li><a href="https://en.wikipedia.org/wiki/Edukki">Edukki</a></li>
+                            <li><a href="https://en.wikipedia.org/wiki/Ernakulam">Ernakulam</a></li>
+                            </ul>
+                        </li>
+                        <li class="active"><a href="{% url 'register' %}">Register <span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="{% url 'login' %}">Login</a></li>
+                        <li><a class="btn btn-success" href="{% url 'login' %}" style="color:Red;" >Contact</a></li>
+                    </ul>
+
+              </ul>
+    <div/>
+</header>
